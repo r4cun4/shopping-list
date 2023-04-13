@@ -1,19 +1,16 @@
-import { defineAsyncComponent } from 'vue';
 <template>
    <div class="entry-scrollarea">
-        <h1
-        v-for="item in 100"
-        :key="item"
-        >entry</h1>
+        <h3 v-for="item in showListEntry" :key="item">{{item.name}} {{item.quantity}} ${{item.price}}</h3>
     </div>
 </template>
 
 <script>
-// import { defineAsyncComponent } from 'vue'
+
+import { mapGetters } from 'vuex';
 
 export default {
-    components: {
-        // EntryItem: defineAsyncComponent( () => import('../components/EntryItem.vue'))
+    computed: {
+        ...mapGetters('productListModule', ['showListEntry']),
     }
 }
 </script>
@@ -23,7 +20,6 @@ export default {
     border-right: 1px solid #2c3e50;
     height: calc( 100vh - 56px );
 }
-
 .entry-scrollarea {
     height: calc( 100vh - 120px );
     overflow: scroll;

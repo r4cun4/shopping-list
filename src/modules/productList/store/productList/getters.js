@@ -1,7 +1,5 @@
-export const getEntriesByTerm = ( state ) => {
-    return state.entries
-}
+export const showListEntry = ( state ) =>  {
+    const entry = state.entries
 
-// export const getEntryById = ( state ) => {
-//     return state.entries
-// }
+    return { ...entry }
+}
