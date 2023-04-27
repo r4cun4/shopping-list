@@ -11,7 +11,7 @@
 export default {
   methods: {
     goToProductList() {
-      this.$router.push({ name: 'product-list' })
+      this.$router.push({ name: 'productList' })
     }
   }
 }

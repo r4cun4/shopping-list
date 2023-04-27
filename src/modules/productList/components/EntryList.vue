@@ -1,6 +1,12 @@
 <template>
    <div class="entry-scrollarea">
-        <h3 v-for="item in showListEntry" :key="item">{{item.name}} {{item.quantity}} ${{item.price}}</h3>
+        <h3
+          v-for="item in showListEntry"
+          :key="item.id">
+          {{item.name}}
+          {{item.quantity}}
+          ${{item.price}}
+        </h3>
     </div>
 </template>
 
