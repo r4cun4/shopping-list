@@ -2,7 +2,8 @@
    <div class="entry-scrollarea">
         <h3
           v-for="item in showListEntry"
-          :key="item.id">
+          :key="item.id"
+          @click="$router.push({ name: 'entry', params: { id: 10 }})">
           {{item.name}}
           {{item.quantity}}
           ${{item.price}}

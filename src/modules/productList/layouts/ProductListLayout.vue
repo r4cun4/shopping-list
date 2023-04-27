@@ -6,7 +6,7 @@
             <EntryList />
         </div>
         <div class="col">
-            <EntryItem />
+            <router-view />
         </div>
     </div>
 </template>
@@ -21,7 +21,6 @@ export default {
     components: {
         NavbarItem: defineAsyncComponent( () => import('../components/NavbarItem.vue')),
         EntryList: defineAsyncComponent( () => import('../components/EntryList.vue')),
-        EntryItem: defineAsyncComponent( () => import('../components/EntryItem.vue'))
     },
     methods: {
         ...mapActions('productListModule', ['loadEntries'])
