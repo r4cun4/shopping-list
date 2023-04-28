@@ -6,7 +6,12 @@ export default {
         {
             path: ':id',
             name: 'entry',
-            component: () => import(/* webpackChunkName: "productList-entry" */ '@/modules/productList/views/EntryView.vue')
+            component: () => import(/* webpackChunkName: "productList-entry" */ '@/modules/productList/views/EntryView.vue'),
+            props: ( route ) => {
+                return {
+                    id: route.params.id
+                }
+            }
         }
     ]
 

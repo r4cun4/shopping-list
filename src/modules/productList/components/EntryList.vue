@@ -1,21 +1,22 @@
 <template>
    <div class="entry-scrollarea">
-        <h3
-          v-for="item in showListEntry"
-          :key="item.id"
-          @click="$router.push({ name: 'entry', params: { id: 10 }})">
-          {{item.name}}
-          {{item.quantity}}
-          ${{item.price}}
-        </h3>
+        <EntryItem
+            v-for="entry in showListEntry"
+            :key="entry.id"
+            :entry="entry"
+        />
     </div>
 </template>
 
 <script>
+import { defineAsyncComponent } from '@vue/runtime-core';
 
 import { mapGetters } from 'vuex';
 
 export default {
+    components: {
+        EntryItem: defineAsyncComponent(() => import('./EntryItem.vue'))
+    },
     computed: {
         ...mapGetters('productListModule', ['showListEntry']),
     }

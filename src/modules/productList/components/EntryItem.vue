@@ -1,13 +1,15 @@
 import { mapMutations, mapState } from 'vuex';
 <template>
-    <form @submit.prevent="addItem">
+    <!-- <form @submit.prevent="addItem">
         <input v-model="product.name" type="text" placeholder="Agregá un producto">
         <input v-model="product.price" type="text" placeholder="Agregá el precio">
         <input v-model="product.quantity" type="text" placeholder="Agregá las unidades">
-        <!-- <button @click="increment">+</button>
-        <button @click="decrement">-</button> -->
         <button @click="saveEntry">Agregar</button>
-    </form>
+    </form> -->
+
+    <div @click="$router.push({ name: 'entry', params: { id: entry.id }})">
+        {{entry.name}} {{entry.quantity}} ${{entry.price}}
+    </div>
     
 </template>
 
@@ -15,6 +17,13 @@ import { mapMutations, mapState } from 'vuex';
 import { mapState, mapMutations, mapActions } from 'vuex'
 
 export default {
+    // la prop entry la recibo desde EntryList
+    props: {
+        entry: {
+            type: Object,
+            required: true
+        }
+    },
     computed: {
         ...mapState(['productListModule']),
     },
