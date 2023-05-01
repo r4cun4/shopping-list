@@ -7,20 +7,6 @@ export const setEntries = ( state, entries ) => {
 
 }
 
-// export const increment = ( state ) => {
-
-//     if(state.entries[0].quantity >= 1 ) {
-//         state.entries[0].quantity++
-//     } 
-// }
-
-// export const decrement = ( state ) => {
-
-//     if(state.entries[0].quantity > 1 ) {
-//         state.entries[0].quantity--
-//     } 
-// }
-
 export const updateEntry = ( state, entry ) => {
 
     const idx = state.entries.map( e => e.id ).indexOf( entry.id )

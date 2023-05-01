@@ -17,18 +17,6 @@ export const loadEntries = async ({ commit }) => {
 
 }
 
-// export const add = async ({ commit }) => {
-
-//     commit( 'increment' )
-
-// }
-
-// export const sub = async ({ commit }) => {
-
-//     commit( 'decrement' )
-
-// }
-
 export const updateEntry = async ({ commit }, product) => {
 
     console.log(product, 'actions')
