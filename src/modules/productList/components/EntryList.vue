@@ -1,10 +1,13 @@
 <template>
    <div class="entry-scrollarea">
+    <ul>
         <EntryItem
             v-for="entry in showListEntry"
             :key="entry.id"
             :entry="entry"
         />
+    </ul>
+
     </div>
 </template>
 

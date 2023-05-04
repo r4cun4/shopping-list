@@ -1,8 +1,9 @@
 import { mapMutations, mapState } from 'vuex';
 <template>
-    <ul @click="$router.push({ name: 'entry', params: { id: entry.id }})">
-        <li>{{entry.name}} {{entry.quantity}} ${{entry.price}}</li>
-    </ul>
+    <li @click="$router.push({ name: 'entry', params: { id: entry.id }})">
+        {{entry.name}} {{entry.quantity}} ${{entry.price}}
+    </li>
+
 </template>
 
 <script>

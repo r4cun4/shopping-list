@@ -8,15 +8,6 @@
 
             Navbar component
         </a>
-
-        <div class="d-flex">
-            <button class="btn btn-outline-info">
-                <i class="fa fa-sign-out-alt"
-                    @click="$router.push({ path:'/' })"
-                >Volver
-                </i>
-            </button>
-        </div>
     </nav>
 </template>
 

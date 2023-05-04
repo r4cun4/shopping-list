@@ -1,7 +1,7 @@
 <template>
   <template v-if="entry">
     <div class="d-flex">
-      <textarea disabled rows="1" v-model="entry"></textarea>
+      <input type ="text" disabled v-model="entry"/>
       <div>
         <button class="btn btn-edit mx-2" @click="updateEntry" ><i class="fa fa-edit alt"></i></button>
         <button class="btn btn-save mx-2" @click="saveEntry" ><i class="fa fa-save alt"></i></button>
