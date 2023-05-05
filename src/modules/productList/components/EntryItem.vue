@@ -1,7 +1,7 @@
 import { mapMutations, mapState } from 'vuex';
 <template>
     <li @click="$router.push({ name: 'entry', params: { id: entry.id }})">
-        {{entry.name}} {{entry.quantity}} ${{entry.price}}
+        {{entry.name}} ${{entry.price}} ({{entry.quantity}})
     </li>
 
 </template>
@@ -26,7 +26,7 @@ export default {
             product: {
                 name: '',
                 price: '',
-                quuantity: '',
+                quantity: '',
             }
         }
     },

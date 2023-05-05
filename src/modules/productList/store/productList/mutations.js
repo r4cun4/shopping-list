@@ -19,12 +19,19 @@ export const updateEntry = ( state, entry ) => {
 
 }
 
-// export const addEntry = ( state, newEntry ) => {
+export const addEntry = ( state, entry ) => {
 
-//     console.log(state)
-//     console.log(newEntry)
+    // state -> entries -> la nueva entrada debe ser la primera
+    
+    state.entries = [ entry, ...state.entries ]
+    console.log(state.entries)
 
-//     state.entries = [ newEntry, ...state.entries ]
-//     console.log(state.entries)
+}
 
-// }
+export const deleteEntry = (state, id) => {
+
+    // remover del state.entries el que conicida con el id
+    
+    state.entries = state.entries.filter( entry => entry.id !== id )
+    
+}

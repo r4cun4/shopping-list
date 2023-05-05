@@ -67,3 +67,17 @@ export default {
     
 }
 </script>
+
+<style scoped>
+
+.d-flex {
+    position: relative;
+    gap: 10px;
+}
+.col {
+    position: absolute;
+    top: 81px;
+    left: 50%;
+    transform: translate(-25%);
+}
+</style>

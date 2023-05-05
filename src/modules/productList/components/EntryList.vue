@@ -1,13 +1,22 @@
 <template>
-   <div class="entry-scrollarea">
-    <ul>
-        <EntryItem
-            v-for="entry in showListEntry"
-            :key="entry.id"
-            :entry="entry"
-        />
-    </ul>
+    <div class="entry-list-container">
+        <div class="mt-2 d-flex flex-column">
+            <button class="btn btn-primary mx-3"
+            @click="$router.push({ name:'entry', params: { id:'new' } })">
+                <i class="fa fa-plus-circle"></i>
+                Agregar producto
+            </button>
+        </div>
+    <div class="entry-scrollarea">
+        <ul>
+            <EntryItem
+                v-for="entry in showListEntry"
+                :key="entry.id"
+                :entry="entry"
+            />
+        </ul>
 
+        </div>
     </div>
 </template>
 
@@ -34,5 +43,6 @@ export default {
 .entry-scrollarea {
     height: calc( 100vh - 120px );
     overflow: scroll;
+    padding: 30px 10px;
 }
 </style>
