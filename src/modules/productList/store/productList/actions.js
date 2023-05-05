@@ -25,31 +25,33 @@ export const loadEntries = async ({ commit }) => {
 
 }
 
-export const updateEntry = async ({ commit }, product) => {
+export const updateEntry = async ({ commit }, entry) => {
 
-    console.log(product, 'actions')
+    console.log('soy entry en actions:', entry)
 
-    const { name, price, quantity } = product
+    const { name, price } = entry
 
-    const dataToSave = { name, price, quantity }
+    const dataToSave = { name, price }
 
-    await shoppingListApi.put( `/entries.json/${ product.id }.json`, dataToSave )
+    const resp = await shoppingListApi.put( `/entries/${ entry.id }.json`, dataToSave )
 
-    commit( 'updateEntry', { ...product } )
+    console.log('soy resp en actions:', resp)
+
+    commit( 'updateEntry', { ...entry } )
 }
 
-export const createEntry = async ({ commit }, product) => {
+// export const createEntry = async ({ commit }, product) => {
 
-    const { name, price, quantity } = product
+//     const { name, price, quantity } = product
 
-    const dataToSave = { name, price, quantity }
+//     const dataToSave = { name, price, quantity }
 
-    const { data } = await shoppingListApi.post( `entries.json`, dataToSave )
+//     const { data } = await shoppingListApi.post( `entries.json`, dataToSave )
 
-    dataToSave.id = data.name
+//     dataToSave.id = data.name
 
-    commit( 'addEntry', dataToSave )
+//     commit( 'addEntry', dataToSave )
 
-    return dataToSave.id
+//     return dataToSave.id
     
-}
+// }

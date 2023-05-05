@@ -6,12 +6,12 @@ export const showListEntry = ( state ) =>  {
 
 export const getEntriesById = ( state ) => ( id = '') => {
 
-    console.log('soy state', state)
-    console.log('soy state.entries', state.entries)
+    console.log('soy state en getters:', state)
+    console.log('soy state.entries en getters:', state.entries)
 
     const entry = state.entries.find( entry => entry.id === id )
 
-    console.log({entry})
+    console.log('soy entry en getters:', {entry})
 
     if ( !entry ) return
 

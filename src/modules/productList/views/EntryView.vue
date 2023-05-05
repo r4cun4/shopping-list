@@ -1,10 +1,9 @@
 <template>
   <template v-if="entry">
     <div class="d-flex">
-      <input type ="text" disabled v-model="entry"/>
+      <input type ="text" v-model="entry.name"/>
       <div>
-        <button class="btn btn-edit mx-2" @click="updateEntry" ><i class="fa fa-edit alt"></i></button>
-        <button class="btn btn-save mx-2" @click="saveEntry" ><i class="fa fa-save alt"></i></button>
+        <button class="btn btn-save mx-2" @click="saveEntry"><i class="fa fa-save alt"></i></button>
       </div>
   </div>
   </template>
@@ -24,7 +23,7 @@ export default {
 
   data() {
     return {
-      entry: null
+      entry: null,
     }
   },
 
@@ -35,14 +34,12 @@ export default {
   methods: {
     ...mapActions('productListModule', ['updateEntry']),
     loadEntry() {   
-      const entry = this.getEntriesById( this.id )
-      console.log( 'soy entry', entry.name )  
-      
-      this.entry = entry.name
+      const entry = this.getEntriesById( this.id ) 
+      this.entry = entry
     },
-    updateEntry() {
-      const updateEntry = this.updateEntry()
-      console.log('SOY EDIT', updateEntry)
+    async saveEntry() {
+      console.log('Guardando entrada')
+      await this.updateEntry( this.entry )
     }
   },
 
@@ -59,9 +56,6 @@ export default {
 </script>
 
 <style scoped>
-.d-flex {
-  justify-content: space-between;
-}
 .btn {
   width: 40px;
   border: 1px solid;

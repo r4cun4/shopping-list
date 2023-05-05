@@ -7,7 +7,7 @@ import { mapMutations, mapState } from 'vuex';
 </template>
 
 <script>
-import { mapState, mapMutations, mapActions } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
     // la prop entry la recibo desde EntryList
@@ -32,12 +32,7 @@ export default {
     },
 
     methods: {
-        ...mapActions('productListModule', ['createEntry', 'updateEntry']),
-        ...mapMutations('productListModule', ['increment', 'decrement', 'addEntry']),
-        async saveEntry() {
-            this.createEntry(this.product)
-            // this.updateEntry( this.product )
-        }
+        ...mapActions('productListModule', ['createEntry', 'updateEntry'])
     }
 }
 </script>
