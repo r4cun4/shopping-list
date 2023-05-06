@@ -18,3 +18,19 @@ export const getEntriesById = ( state ) => ( id = '') => {
     return { ...entry } 
 
 }
+
+export const showPriceByEntry = ( state ) => {
+
+    let result = 0;
+
+    state.entries.forEach(element => {
+
+       result += element.quantity * element.price
+
+       console.log('soy result en el foreach', result)
+
+    });
+
+    return result
+
+}

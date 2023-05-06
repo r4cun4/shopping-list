@@ -18,8 +18,13 @@
         </div>
         <div class="col">
             <router-view />
+            <hr>
+            <div class="total-list-wrapper">
+                <TotalList />
+            </div>
         </div>
     </div>
+
 </template>
 
 <script>
@@ -32,6 +37,7 @@ export default {
     components: {
         NavbarItem: defineAsyncComponent( () => import('../components/NavbarItem.vue')),
         EntryList: defineAsyncComponent( () => import('../components/EntryList.vue')),
+        TotalList: defineAsyncComponent( () => import('../components/TotalList.vue')),
     },
     data() {
         return {
@@ -74,10 +80,5 @@ export default {
     position: relative;
     gap: 10px;
 }
-.col {
-    position: absolute;
-    top: 81px;
-    left: 50%;
-    transform: translate(-25%);
-}
+
 </style>

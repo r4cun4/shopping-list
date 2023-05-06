@@ -1,10 +1,19 @@
 <template>
-  <h1>soy total list</h1>
+  <h1> Subtotal : ${{ showPriceByEntry }}</h1>
 </template>
 
 <script>
-export default {
+import { mapGetters } from 'vuex';
 
+export default {
+    computed: {
+      ...mapGetters('productListModule', ['showPriceByEntry']),
+    },
+    methods: {
+      showSubtotal() {
+        this.showPriceByEntry()
+      },
+    }
 }
 </script>
 

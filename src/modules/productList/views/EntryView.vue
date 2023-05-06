@@ -1,9 +1,19 @@
 <template>
   <template v-if="entry">
-    <div class="d-flex">
-      <input type ="text" v-model="entry.name" placeholder="Ingresá un producto"/>
-      <input type ="number" v-model="entry.price" placeholder="Ingresá el precio"/>
-      <input type ="number" v-model="entry.quantity" placeholder="Ingresá las unidades"/>
+    <div class="d-flex form-wrapper">
+      <div class="input-wrapper">
+        <label>Nombre</label>
+        <input type ="text" v-model="entry.name" placeholder="Ingresá un producto"/>
+      </div>
+      <div class="input-wrapper">
+        <label>Precio</label>
+        <input type ="number" v-model="entry.price" placeholder="0"/>
+      </div>
+      <div class="input-wrapper">
+        <label>Unidades</label>
+        <input type ="number" v-model="entry.quantity" placeholder="0"/>
+      </div>
+
       <div class="buttons-wrapper">
         <button class="btn btn-save mx-2" @click="saveEntry"><i class="fa fa-save alt"></i></button>
         <button
@@ -84,12 +94,22 @@ export default {
 
 <style scoped>
 
+/* el form wrapper es el que hay que ponerle un media querie */
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 input {
   height: 100%;
 }
 
 .buttons-wrapper {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn {
