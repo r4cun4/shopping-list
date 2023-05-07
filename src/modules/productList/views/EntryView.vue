@@ -2,16 +2,31 @@
   <template v-if="entry">
     <div class="d-flex form-wrapper">
       <div class="input-wrapper">
-        <label>Nombre</label>
-        <input type ="text" v-model="entry.name" placeholder="Ingresá un producto"/>
+        <input
+          type="text"
+          v-model="entry.name"
+          placeholder="Nombre*"
+          @input="validateName"
+          :class="{ invalid: !isNameValid }" />
+        <label :class="{ invalid: !isNameValid }">{{ nameLabel }}</label>
       </div>
       <div class="input-wrapper">
-        <label>Precio</label>
-        <input type ="number" v-model="entry.price" placeholder="0"/>
+        <input
+          type="number"
+          v-model="entry.price"
+          placeholder="Precio*"
+          @input="validatePrice"
+          :class="{ invalid: !isPriceValid }" />
+        <label :class="{ invalid: !isPriceValid }">{{ priceLabel }}</label>
       </div>
       <div class="input-wrapper">
-        <label>Unidades</label>
-        <input type ="number" v-model="entry.quantity" placeholder="0"/>
+        <input
+          type="number"
+          v-model="entry.quantity"
+          placeholder="Cantidad*"
+          @input="validateQuantity"
+          :class="{ invalid: !isQuantityValid }" />
+        <label :class="{ invalid: !isQuantityValid }">{{ quantityLabel }}</label>
       </div>
 
       <div class="buttons-wrapper">
@@ -40,11 +55,26 @@ export default {
   data() {
     return {
       entry: null,
+      isNameValid: true,
+      isPriceValid: true,
+      isQuantityValid: true,
     }
   },
 
   computed: {
     ...mapGetters('productListModule', ['getEntriesById']),
+    nameLabel() {
+      return this.isNameValid ? 'Ingresá el producto' : 'Nombre incorrecto';
+    },
+    priceLabel() {
+      return this.isPriceValid ? 'Ingresá el precio' : 'Precio incorrecto';
+    },
+    quantityLabel() {
+      return this.isQuantityValid ? 'Ingresá la cantidad' : 'Cantidad incorrecta';
+    },
+    isInvalid() {
+      return !this.isNameValid || !this.isPriceValid || !this.isQuantityValid;
+    }
   },
 
   methods: {
@@ -55,7 +85,7 @@ export default {
 
       if(this.id === 'new') {
         entry = {
-          text: ''
+          name: ''
         }
       } else {
 
@@ -66,6 +96,13 @@ export default {
       this.entry = entry
     },
     async saveEntry() {
+
+      if (this.isInvalid) {
+        this.validateName();
+        this.validatePrice();
+        this.validateQuantity();
+        return;
+      }
       
       if (this.entry.id) {
         await this.updateEntry( this.entry )
@@ -77,13 +114,28 @@ export default {
     async onDeleteEntry() {
       console.log('delete', this.entry)
       await this.deleteEntry( this.entry.id )
-    }
+    },
+    validateName() {
+      this.isNameValid = /^[a-zA-Z]+$/.test(this.entry.name);
+    },
+    validatePrice() {
+      if (this.entry.price <= 0 || isNaN(this.entry.price)) {
+        this.isPriceValid = false;
+      } else {
+        this.isPriceValid = true;
+      }
+    },
+    validateQuantity() {
+      if (this.entry.quantity <= 0 || isNaN(this.entry.quantity)) {
+        this.isQuantityValid = false;
+      } else {
+        this.isQuantityValid = true;
+      }
+    },
   },
-
   created() {
     this.loadEntry()
   },
-
   watch: {
     id() {
       this.loadEntry()
@@ -106,6 +158,22 @@ input {
   height: 100%;
 }
 
+input::placeholder {
+  color: #ccc;
+}
+
+input::placeholder * {
+  color: red;
+}
+
+input.invalid {
+  background: red;
+}
+
+label.invalid {
+  color: red;
+}
+
 .buttons-wrapper {
   display: flex;
   align-items: center;
@@ -117,4 +185,5 @@ input {
   border: 1px solid;
   border-radius: 50%;
 }
+
 </style>
