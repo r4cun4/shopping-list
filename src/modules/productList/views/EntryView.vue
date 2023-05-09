@@ -116,13 +116,14 @@ export default {
       await this.deleteEntry( this.entry.id )
     },
     validateName() {
-      this.isNameValid = /^[a-zA-Z]+$/.test(this.entry.name);
+      this.isNameValid = /^[a-zA-Z]+(?: [a-zA-Z]+)*(\s\d+[a-zA-Z]*)?$/.test(this.entry.name);
     },
     validatePrice() {
       if (this.entry.price <= 0 || isNaN(this.entry.price)) {
         this.isPriceValid = false;
       } else {
         this.isPriceValid = true;
+        this.entry.price = Number(this.entry.price.toFixed(2))
       }
     },
     validateQuantity() {
