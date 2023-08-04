@@ -27,8 +27,6 @@ export const showPriceByEntry = ( state ) => {
 
        result += element.quantity * element.price
 
-       console.log('soy result en el foreach', result)
-
     });
 
     return result

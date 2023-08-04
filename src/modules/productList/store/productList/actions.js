@@ -2,8 +2,6 @@ import shoppingListApi from "@/api/shoppingListApi"
 
 export const loadEntries = async ({ commit }) => {
 
-    console.log('loadEntries ejecutada');
-
     const { data } = await shoppingListApi.get('/entries.json')
 
     if ( !data ) {
