@@ -158,7 +158,6 @@ export default {
 </script>
 
 <style scoped>
-/* el form wrapper es el que hay que ponerle un media querie */
 
 .form-wrapper {
   gap: 7px;
