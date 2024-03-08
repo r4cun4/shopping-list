@@ -26,55 +26,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ## Create an env file
 VUE_APP_FIREBASE_DATABASE_URL={firebase_url}
 
-#### Structure and flow
+![image](https://github.com/r4cun4/shopping-list/assets/77390217/34e4f358-6e7f-4f0d-a3fc-8374801bd7f4)
 
-+-----------------------+
-|   ProductListLayout   | ----> is the top-level component that holds the main structure of the application
-|                       |
-|   +-------------------+
-|   | NavbarItem        | ----> represents the navigation bar at the top of the application
-|   |                   |
-|   +-------------------+
-|                       |
-|   +-------------------+
-|   | EntryList         | ----> is responsible for displaying the list of entry items. It uses the EntryItem component for each entry
-|   |                   |
-|   +-------------------+
-|                       |
-|   +-------------------+
-|   | TotalList         | ----> displays the total price calculated from the entry items
-|   |                   |
-|   +-------------------+
-|                       |
-+-----------------------+
-           |
-           |
-           v
-+--------------------------------+
-|        EntryItem               | ----> represents each item in the entry list. It can be clicked to navigate to an EntryView
-|                                |       for editing
-+--------------------------------+
-           |
-           |
-           v
-+--------------------------------+
-|       EntryView                | ----> is responsible for displaying and editing a single entry. It is used for creating new
-|                                |       entries and editing existing ones
-+--------------------------------+
-           |
-           |
-           v
-+--------------------------------+
-|      Vuex Store (State,        | ----> manages the application's state and data flow.
-|      Actions, Getters,         |       Actions: manage asynchronous tasks and interact with APIs to load, create, update and
-|      Mutations)                |       delete entries.
-|                                |       Getters: compute derived values from the state
-+--------------------------------+       Mutations: modify the state synchronously
-                                         State: holds the application's data, including the loading state and the list of entries
-           |
-           |
-           v
-+--------------------------------+
-|      Router Configuration      | ----> manages the routing navigation, in this app shows the children route of the Layout
-|                                |
-+--------------------------------+
