@@ -23,6 +23,9 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+## Create an env file
+VUE_APP_FIREBASE_DATABASE_URL={firebase_url}
+
 #### Structure and flow
 
 +-----------------------+
