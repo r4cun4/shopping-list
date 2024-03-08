@@ -1,80 +1,93 @@
-$theme-colors: (
-  "primary": #2c3e50,
-  "secondary": #1d6042,
-  "success": #198754,
-  "info": #0dcaf0,
-  "warning": #ffc107,
-  "danger": #dc3545,
-  "light": #f8f9fa,
-  "dark": #343a40
-);
-
 h1 {
   padding: 10px;
-  background-color: #C70A80;
-  color: #FBCB0A;
+  background-color: #252529;
+  color: #37E2D5;
+  border: 1px solid #37E2D5;
   border-radius: 20px;
-  text-shadow: #dc3545;
-
 }
 
 
 #app {
-  height: 100vh;
+  min-height: 100dvh;
   font-family: 'Dosis', sans-serif;
-  color: #C70A80;
-  background-color: #FBCB0A;
+  color: #37E2D5;
+  background-color: #1A1A1A;
 }
 
 .btn.btn-primary.mx-3 {
   border-radius: 20px;
+  border: none;
   background-color: #590696;
-  color: #37e2d5;
+  color: #37E2D5;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.btn.btn-save.mx-2:hover,
+.btn.btn-trash.mx-2:hover,
+.btn.btn-primary.mx-3:hover,
+.btn .btn-primary.mx-3:focus {
+  filter: brightness(120%);
+  border: none;
 }
 
 .columns-wrapper {
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
+  gap: 20px;
 
 }
 
 .entry-list-container {
   padding-top: 10px;
-  background-color: #fcd94b;
+  background-color: #252529;
   border: none !important;
   border-radius: 15px;
+}
 
+li {
+  margin-bottom: 5px;
 }
 
 .navbar.bg-primary {
-
-  background-color: #C70A80 !important;
-
+  display: flex;
+  justify-content: center;
+  background-color: #590696 !important;
 }
 
 .navbar-brand.text-white {
+  font-weight: bold;
+  color: #37E2D5 !important;
+}
 
-  color: #FBCB0A !important;
+.entry-scrollarea {
+  padding: 8px;
+}
 
-
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }
 
 input {
-
+  color: #979FAD;
+  background-color: #252529;
+  padding: 10px;
+  border: none;
   border-radius: 5px;
-  border: thin solid #C70A80;
 }
 
 input:focus {
-  background-color: #fcd94b;
-  color: #C70A80;
   transform: scale(1.2);
   transition: transform 0.2s ease-in-out;
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
+  border: 1px solid #37E2D5 !important;;
 }
 
 label {
+  margin: 10px;
   padding-top: 2px;
 }
 

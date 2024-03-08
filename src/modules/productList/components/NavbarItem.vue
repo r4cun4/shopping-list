@@ -6,7 +6,7 @@
                  height="24"
                  class="d-inline-block align-text-top mx-2">
 
-            Lista de Compras :)
+            Shopping List App
         </a>
     </nav>
 </template>

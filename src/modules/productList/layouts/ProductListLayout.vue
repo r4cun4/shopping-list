@@ -73,11 +73,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-
-.columns-wrapper {
-  background: #fbcb0a;
-}
-
-</style>

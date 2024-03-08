@@ -34,12 +34,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss" scoped>
-.entry-list-container {
-    border-right: 1px solid #2c3e50;
-}
-.entry-scrollarea {
-    padding: 30px 10px;
-}
-</style>

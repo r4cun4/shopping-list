@@ -182,15 +182,15 @@ input::placeholder {
 }
 
 input::placeholder * {
-  color: red;
+  color: #c94d59;
 }
 
 input.invalid {
-  background: red;
+  background: #c94d59;
 }
 
 label.invalid {
-  color: red;
+  color: #c94d59;
 }
 
 .buttons-wrapper {
