@@ -108,10 +108,11 @@ export default {
       this.entry = entry;
     },
     async saveEntry() {
+      this.validateName();
+      this.validatePrice();
+      this.validateQuantity();
+      
       if (this.isInvalid) {
-        this.validateName();
-        this.validatePrice();
-        this.validateQuantity();
         return;
       }
 
@@ -122,7 +123,6 @@ export default {
       }
     },
     async onDeleteEntry() {
-      console.log("delete", this.entry);
       await this.deleteEntry(this.entry.id);
     },
     validateName() {
