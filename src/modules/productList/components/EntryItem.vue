@@ -1,6 +1,8 @@
 import { mapMutations, mapState } from 'vuex';
 <template>
-    <li @click="$router.push({ name: 'entry', params: { id: entry.id }})">
+    <li class="list-group-item"
+        :class="{ active: isSelected }"
+        @click="handleClick">
         {{entry.name}} ${{entry.price}} ({{entry.quantity}})
     </li>
 
@@ -10,11 +12,14 @@ import { mapMutations, mapState } from 'vuex';
 import { mapState, mapActions } from 'vuex'
 
 export default {
-    // la prop entry la recibo desde EntryList
     props: {
         entry: {
             type: Object,
             required: true
+        },
+        isSelected: {
+            type: Boolean,
+            default: false
         }
     },
     computed: {
@@ -32,7 +37,28 @@ export default {
     },
 
     methods: {
-        ...mapActions('productListModule', ['createEntry', 'updateEntry'])
+        ...mapActions('productListModule', ['createEntry', 'updateEntry']),
+        handleClick() {
+            this.$router.push({ 
+                name: 'entry', 
+                params: { id: this.entry.id }
+            });
+            this.$emit('select', this.entry.id);
+        }
     }
 }
 </script>
+
+<style scoped>
+
+li {
+    color: #37DCC9;
+    background-color: #1A1A1A;
+    cursor: pointer;
+}
+
+li:hover {
+    color: #fff;
+    background-color: #0D6EFD;
+}
+</style>
