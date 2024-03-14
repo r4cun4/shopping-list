@@ -17,42 +17,69 @@ export const loadEntries = async ({ commit }) => {
         })
     }
 
-    // console.log(entries)
-
     commit( 'setEntries', entries )
 
 }
 
 export const updateEntry = async ({ commit }, entry) => {
 
-    console.log('soy entry en actions:', entry)
-
     const { name, price, quantity } = entry
 
     const dataToSave = { name, price, quantity }
 
-    const resp = await shoppingListApi.put( `/entries/${ entry.id }.json`, dataToSave )
-
-    console.log('soy resp en actions:', resp)
+    await shoppingListApi.put( `/entries/${ entry.id }.json`, dataToSave )
 
     commit( 'updateEntry', { ...entry } )
 }
 
-export const createEntry = async ({ commit }, entry) => {
+export const createEntry = async ({ commit, state }, newEntry) => {
+    const { name, price, quantity } = newEntry;
 
-    const { name, price, quantity } = entry
+    if (!name || !price || !quantity) {
+        throw new Error('Todos los campos son obligatorios');
+    }
 
-    const dataToSave = { name, price, quantity }
+    const existingEntry = state.entries.find(entry => entry.name === name);
 
-    const { data } = await shoppingListApi.post( `entries.json`, dataToSave )
+    if (existingEntry) {
 
-    dataToSave.id = data.name
+        const updatedQuantity = existingEntry.quantity + quantity;
+        const updatedEntry = { ...existingEntry, quantity: updatedQuantity };
 
-    commit( 'addEntry', dataToSave )
+        try {
 
-    return dataToSave.id
-    
-}
+            await shoppingListApi.put(`/entries/${existingEntry.id}.json`, updatedEntry);
+
+            commit('updateEntry', updatedEntry);
+        } catch (error) {
+            console.error('Error al actualizar la entrada:', error);
+            throw error;
+        }
+    } else {
+ 
+        const dataToSave = { name, price, quantity };
+
+        try {
+
+            const { data } = await shoppingListApi.post(`entries.json`, dataToSave);
+
+
+            if (!data || !data.name) {
+                throw new Error('Error al crear la entrada');
+            }
+
+            dataToSave.id = data.name;
+
+  
+            commit('addEntry', dataToSave);
+
+            return dataToSave.id;
+        } catch (error) {
+            console.error('Error al crear la entrada:', error);
+            throw error;
+        }
+    }
+};
 
 export const deleteEntry = async ({ commit }, id) => {
 
