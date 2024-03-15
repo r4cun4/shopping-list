@@ -35,3 +35,11 @@ export const deleteEntry = (state, id) => {
     state.entries = state.entries.filter( entry => entry.id !== id )
     
 }
+
+export const deleteAllEntries = (state) => {
+
+    // remover del state.entries todos los elementos
+    
+    state.entries = [];
+    
+}

@@ -37,6 +37,7 @@
       <div class="buttons-wrapper">
         <button class="btn btn-save mx-2" @click="saveEntry">
           <i class="fa fa-save alt"></i>
+          Guardar
         </button>
         <button
           v-if="entry.id"
@@ -44,6 +45,7 @@
           @click="onDeleteEntry"
         >
           <i class="fa fa-trash alt"></i>
+          Eliminar
         </button>
       </div>
     </div>
@@ -200,16 +202,15 @@ label.invalid {
 }
 
 .btn {
-  width: 40px;
+  /* width: 40px; */
   background-color: #590696;
   color: #37e2d5;
-  width: 40px;
   border: 1px none;
-  border-radius: 50%;
+  border-radius: 10px;
   transition: transfortm 5s ease-in-out;
 }
 
 .btn:active {
-  transform: scale(3);
+  transform: scale(1.5);
 }
 </style>

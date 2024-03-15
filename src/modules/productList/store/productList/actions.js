@@ -90,3 +90,11 @@ export const deleteEntry = async ({ commit }, id) => {
     return id
 
 }
+
+export const deleteAllEntries = async ({ commit }) => {
+
+    await shoppingListApi.delete( `/entries.json`)
+
+    commit ('deleteAllEntries')
+
+}
