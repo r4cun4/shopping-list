@@ -69,39 +69,4 @@ li {
   padding: 8px;
 }
 
-.form-wrapper {
-  padding: 15px;
-  border-radius: 25px;
-  background-color: #252529;
-  &:hover {
-    border: 1px solid #37E2D5 !important;
-  }
-}
-
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
-}
-
-input {
-  color: #979FAD;
-  background-color: #1A1A1A;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-}
-
-input:focus {
-  transform: scale(1.2);
-  transition: transform 0.2s ease-in-out;
-  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
-  border: 1px solid #37E2D5 !important;;
-}
-
-label {
-  margin: 10px;
-  padding-top: 2px;
-}
-
 @import 'node_modules/bootstrap/scss/bootstrap.scss'

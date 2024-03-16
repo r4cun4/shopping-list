@@ -159,7 +159,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 .form-wrapper {
   gap: 7px;
@@ -167,6 +167,12 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 35px;
+  border-radius: 25px;
+  background-color: #252529;
+  &:hover {
+    border: 1px solid #37E2D5 !important;
+  }
 }
 
 .input-wrapper {
@@ -176,7 +182,28 @@ export default {
 }
 
 input {
+  color: #979FAD;
+  background-color: #1A1A1A;
+  padding: 10px;
+  border: none;
+  border-radius: 0 10px 0 0;
   height: 100%;
+  transition: transform 1s;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input:focus-visible {
+  outline: #1A1A1A;
+}
+
+input:focus {
+  border-bottom: 2px solid #37E2D5;
+  transform: scale(1.2);
 }
 
 input::placeholder {
@@ -191,6 +218,11 @@ input.invalid {
   background: #c94d59;
 }
 
+label {
+  margin: 10px;
+  padding-top: 2px;
+}
+
 label.invalid {
   color: #c94d59;
 }
@@ -202,7 +234,6 @@ label.invalid {
 }
 
 .btn {
-  /* width: 40px; */
   background-color: #590696;
   color: #37e2d5;
   border: 1px none;
@@ -213,4 +244,5 @@ label.invalid {
 .btn:active {
   transform: scale(1.5);
 }
+
 </style>
