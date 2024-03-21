@@ -5,7 +5,6 @@
         <input
           type="text"
           v-model="entry.name"
-          placeholder="Nombre*"
           @input="validateName"
           :class="{ invalid: !isNameValid }"
         />
@@ -15,7 +14,6 @@
         <input
           type="number"
           v-model="entry.price"
-          placeholder="Precio*"
           @input="validatePrice"
           :class="{ invalid: !isPriceValid }"
         />
@@ -25,7 +23,6 @@
         <input
           type="number"
           v-model="entry.quantity"
-          placeholder="Cantidad*"
           @input="validateQuantity"
           :class="{ invalid: !isQuantityValid }"
         />
@@ -210,12 +207,8 @@ input::placeholder {
   color: #ccc;
 }
 
-input::placeholder * {
-  color: #c94d59;
-}
-
 input.invalid {
-  background: #c94d59;
+  border-bottom: 2px solid #c94d59;
 }
 
 label {
